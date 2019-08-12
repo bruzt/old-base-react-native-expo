@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { View, Alert } from 'react-native';
 
 import { setMessage as clearMessage } from '../../redux/actions/messageActions';
 
-class AlertMessage extends Component {
+function AlertMessage(props){
 
-    alert(){
+
+    function alert(){
         
-        if(this.props.message.text.trim()){
+        if(props.message.text.trim()){
 
-            Alert.alert(this.props.message.title || 'Mensagem', this.props.message.text);
+            Alert.alert(props.message.title || 'Mensagem', props.message.text);
 
-            this.props.clearMessage({ title: '', text: '' });
+            props.clearMessage({ title: '', text: '' });
         }
     }
 
-    render() {
-        return (
-            <View>
-                {this.alert()}
-            </View>
-        );
-    }
+   
+    return (
+        <React.Fragment>
+            {alert()}
+        </React.Fragment>
+    );
 }
 
 ////////////////////////////////

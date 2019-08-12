@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components/native';
 
-export default class Home extends Component {
+export default function Second(props){
 
-    render() {
-        return (
-            <Container>
+    
+    return (
+        <Container>
 
-                <Text>Second page</Text>
+            <Text>Second page</Text>
 
-            </Container>
-        );
-    }
+        </Container>
+    );
 }
+
 
 const Container = styled.View`
     flex: 1;

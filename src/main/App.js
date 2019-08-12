@@ -1,53 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import * as Font from 'expo-font';
+import { SplashScreen } from 'expo';
 
-import storeConfig from '../redux/store.config';
+import store from '../redux/store';
 
-import Navigator from './Navigator';
+import Routes from './Routes';
 import AlertMessage from '../components/common/AlertMessage';
 
-export default class App extends React.Component {
+export default function App(props){
 
-    constructor(props){
-        super(props);
+    SplashScreen.preventAutoHide();
 
-        this.state = {
-            fontsLoaded: false
-        }
+    const [fontsLoaded, setFontsLoaded] = useState(false);
 
-        this.getFonts();
-    }
+    useEffect( () => {
 
-    async getFonts(){
+        getFonts();
+        
+    }, []);
+
+
+    async function getFonts(){
 
         try {
-
+    
             await Font.loadAsync({ 
-
+    
                 //'shelter': require('../assets/fonts/shelter.otf')
             });
-
-            this.setState({ fontsLoaded: true });
+    
+            setFontsLoaded(true);
+            SplashScreen.hide();
             
         } catch (error) {
             console.error(error);
         }
     }
+    
 
-    render() {
+    return (
+        <React.Fragment>
 
-        if(this.state.fontsLoaded){
-            return (
+            {(fontsLoaded) && (
 
-                <Provider store={storeConfig}>
+                <Provider store={store}>
+
                     <AlertMessage />
-                    <Navigator />
+
+                    <Routes />
+
                 </Provider>
 
-            );
-        } else {
-            return false;
-        }
-    }
+            )}
+
+        </React.Fragment>
+    );
 }

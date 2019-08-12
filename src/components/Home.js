@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import styled from 'styled-components/native';
 
 import { setMessage } from '../redux/actions/messageActions';
 
-class Home extends Component {
+function Home(props){
 
-    render() {
-        return (
-            <Container>
+   
+    return (
+        <Container>
 
-                <Text>Home</Text>
+            <Text>Home</Text>
 
-                <AlertButton onPress={() => this.props.setMessage({ title: 'Alerta', text: 'Algo aconteceu' })}>
-                    <Text>Alerta</Text>
-                </AlertButton>
+            <AlertButton onPress={() => props.setMessage({ title: 'Alerta', text: 'Algo aconteceu' })}>
+                <Text>Alerta</Text>
+            </AlertButton>
 
-            </Container>
-        );
-    }
+        </Container>
+    );
 }
+
 
 const Container = styled.View`
     flex: 1;
