@@ -10,7 +10,9 @@ export default function third(props){
     return (
         <Container>
 
-            <Text>third page</Text>
+            <StackMenuButton onPress={() => props.navigation.navigate('StackScreen')}>
+                <Text>Stack menu</Text>
+            </StackMenuButton>
 
         </Container>
     );
@@ -21,9 +23,14 @@ const Container = styled.View`
     flex: 1;
     align-items: center;
     justify-content: center;
-    width: ${deviceWidth}
+    width: ${deviceWidth};
+`;
+
+const StackMenuButton = styled.TouchableOpacity`
+    padding: 15px;
+    background-color: #232ccf;
 `;
 
 const Text = styled.Text`
-
+    color: white;
 `;

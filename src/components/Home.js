@@ -19,7 +19,7 @@ export default function Home(props){
 
                 <Second />
 
-                <Third />
+                <Third navigation={props.navigation} />
 
             </MainScroll>
         </Container>

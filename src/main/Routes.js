@@ -1,9 +1,9 @@
-import { createDrawerNavigator, createAppContainer } from 'react-navigation';
+import { createDrawerNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 
 import Home from '../components/Home';
-import Second from '../components/Second';
+import StackScreen from '../components/StackScreen';
 
-const homeRoute = createDrawerNavigator({
+const mainRoute = createDrawerNavigator({
 
     Home: {
         screen: Home,
@@ -12,15 +12,28 @@ const homeRoute = createDrawerNavigator({
         }
     },
 
-    Second: {
-        screen: Second,
+});
+
+const stackRoute = createStackNavigator({
+
+    Home: {
+        screen: mainRoute,
         navigationOptions: {
-            title: 'Second'
+            header: null
         }
-    }
-    
+    },
+
+    StackScreen: {
+        screen: StackScreen,
+        navigationOptions: {
+            title: 'Stack'
+        }
+    },
+
 }, {
     initialRouteName: 'Home'
 });
 
-export default createAppContainer(homeRoute);
+
+
+export default createAppContainer(stackRoute);
