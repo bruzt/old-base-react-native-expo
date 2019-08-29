@@ -7,7 +7,10 @@ export default function first(props){
     return (
         <Container>
 
-            <Text>Stack Screen</Text>
+            <Text>
+                Stack Screen
+                {'\n' + props.navigation.state.params.data}
+            </Text>
 
         </Container>
     );

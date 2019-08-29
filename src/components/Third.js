@@ -10,7 +10,7 @@ export default function third(props){
     return (
         <Container>
 
-            <StackMenuButton onPress={() => props.navigation.navigate('StackScreen')}>
+            <StackMenuButton onPress={() => props.navigation.navigate('StackScreen', { data: 'dados da rota' })}>
                 <Text>Stack menu</Text>
             </StackMenuButton>
 
