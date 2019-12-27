@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import { Dimensions } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
 const deviceWidth = Dimensions.get('window').width;
 
-export default function third(props){
+function third(props){
 
     
     return (
@@ -34,3 +35,5 @@ const StackMenuButton = styled.TouchableOpacity`
 const Text = styled.Text`
     color: white;
 `;
+
+export default withNavigation(third);
